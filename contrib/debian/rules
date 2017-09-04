@@ -1,0 +1,33 @@
+#!/usr/bin/make -f
+# -*- mode: makefile; coding: utf-8 -*-
+
+#DEB_MAKE_CHECK_TARGET = test_elcoin
+#build/elcoind::
+#	$(if $(filter nocheck,$(DEB_BUILD_OPTIONS)),,src/test_elcoin)
+
+DEB_INSTALL_EXAMPLES_elcoind += debian/examples/*
+DEB_INSTALL_MANPAGES_elcoind += debian/manpages/*
+
+%:
+	dh --with bash-completion $@
+
+override_dh_auto_build:
+	cd src; $(MAKE) -f makefile.unix elcoind
+	$(MAKE)
+
+override_dh_auto_clean:
+	if [ -f Makefile ]; then $(MAKE) clean; else rm -rf build/; rm -f elcoin; fi
+	cd src; $(MAKE) -f makefile.unix clean
+
+override_dh_auto_configure:
+	qmake elcoin.pro USE_QRCODE=1
+
+override_dh_auto_test:
+	cd src; $(MAKE) -f makefile.unix test_elcoin
+	src/test_elcoin
+
+# Ensure wrapper is set executable
+binary-post-install/elcoind:
+	chmod +x $(cdbs_curdestdir)usr/bin/elcoind
+binary-post-install/elcoin:
+	chmod +x $(cdbs_curdestdir)usr/bin/elcoin

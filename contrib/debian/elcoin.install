@@ -1,0 +1,5 @@
+elcoin usr/bin
+share/pixmaps/elcoin32.xpm usr/share/pixmaps
+share/pixmaps/elcoin80.xpm usr/share/pixmaps
+debian/elcoin.desktop usr/share/applications
+debian/elcoin.protocol usr/share/kde4/services/

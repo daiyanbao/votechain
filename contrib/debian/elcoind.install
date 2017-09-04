@@ -1,0 +1,2 @@
+debian/bin/elcoind usr/bin
+src/elcoind usr/lib/elcoin

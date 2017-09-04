@@ -1,0 +1,9 @@
+Building elcoin
+
+See doc/readme-qt.rst for instructions on building elcoin,
+the intended-for-end-users, nice-graphical-interface, reference
+implementation of elcoin.
+
+See doc/build-*.txt for instructions on building elcoind,
+the intended-for-services, no-graphical-interface, reference
+implementation of elcoin.
