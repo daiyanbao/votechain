@@ -1,5 +1,5 @@
-# votechain
-votechain
+# VoteChain
+VoteChain
 
 # Ubuntu系统(Ubuntu14.04)
 
